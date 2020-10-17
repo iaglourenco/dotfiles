@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo zsh-syntax-highlighting adb autopep8 z)
+plugins=(sudo zsh-syntax-highlighting adb zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,15 +101,11 @@ alias ls=lsd
 alias py=python3
 alias cat=bat
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
-
-
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="$PATH:`yarn global bin`"
+
 

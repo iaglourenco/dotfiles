@@ -4,6 +4,9 @@
 # Repository: https://github.com/dikiaap/dotfiles
 # License: MIT
 
+# Modified by: Iago Lourenço @iaglourenco
+
+
 # Prompt:
 # %F => Color codes
 # %f => Reset color
@@ -68,6 +71,60 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 # Executed before each prompt.
 add-zsh-hook precmd vcs_info
 
+# Oxide prompt style with some modifications.
+PROMPT=$'\n%{$oxide_limegreen%} %B$USER in%b% %F{cyan}% %~%{$oxide_reset_color%} ${vcs_info_msg_0_} \n %(?.%{%F{white}%}.%{$oxide_red%})%(!.#.❯)%{$oxide_reset_color%} '
 
-# Oxide prompt style.
-PROMPT=$'\n%{$oxide_limegreen%} %B $USER in %b% %F{cyan}% %~%{$oxide_reset_color%} ${vcs_info_msg_0_}\n %(?.%{%F{white}%}.%{$oxide_red%})%(!.#.❯)%{$oxide_reset_color%} '
+
+
+
+# Time spent prompt
+
+
+command_time_preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+command_time_precmd() { 
+  if [ $timer ]; then
+    elapsed=$(($SECONDS - $timer))
+
+    if [ -n "$TTY" ]; then
+        
+        # print $elapsed
+        
+        if [ $elapsed -gt 0 ]; then
+        
+                hours=$((${elapsed}/3600))
+                min=$((${elapsed}/60))
+                sec=${elapsed}
+        
+                if [ "${elapsed}" -le 60 ]; then
+       
+                        time_spent="${elapsed} s"
+
+                elif [ "${elapsed}" -gt 60 ] && [ "${elapsed}" -le 180 ]; then
+                        time_spent="${min} min ${sec} s"
+            
+                else
+                
+                        if [ "${hours}" -gt 0 ]; then
+                            min=$(($min%60))
+                            time_spent="${hours} h ${min} min ${sec} s"
+                        else
+                            time_spent="${min} min ${sec} s"
+                        fi
+                fi
+        
+        
+        PROMPT=$'\n%{$oxide_limegreen%} %B$USER in%b% %F{cyan}% %~%{$oxide_reset_color%} ${vcs_info_msg_0_} %B%F{yellow}% took %b% ${time_spent}%{$oxide_reset_color%} \n %(?.%{%F{white}%}.%{$oxide_red%})%(!.#.❯)%{$oxide_reset_color%} '
+        else
+        PROMPT=$'\n%{$oxide_limegreen%} %B$USER in%b% %F{cyan}% %~%{$oxide_reset_color%} ${vcs_info_msg_0_} \n %(?.%{%F{white}%}.%{$oxide_red%})%(!.#.❯)%{$oxide_reset_color%} '
+
+        fi
+    fi
+    unset timer
+  fi
+}
+
+precmd_functions+=(command_time_precmd)
+preexec_functions+=(command_time_preexec)
