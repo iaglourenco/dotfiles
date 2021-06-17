@@ -1,0 +1,2 @@
+0 * * * * /home/iago/Projects/dotfiles/wallscript.sh >> /home/iago/Projects/dotfiles/wallmac.log
+@reboot /home/iago/Projects/dotfiles/wallscript.sh >> /home/iago/Projects/dotfiles/wallmac.log
