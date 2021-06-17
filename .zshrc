@@ -108,7 +108,11 @@ export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="$PATH:`yarn global bin`"
-
+export ANDROID_HOME="$HOME/.AndroidSDK/Sdk"
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/emulator
 
 
 # Spaceship configs
