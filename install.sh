@@ -46,6 +46,9 @@ wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
 sudo apt-get install ./*.deb
 rm -f *.deb
 
+echo "Installing Albert"
+sudo apt-get install albert -y
+
 echo "Installing Beekeeper Studio"
 wget --quiet -O - https://deb.beekeeperstudio.io/beekeeper.key | sudo apt-key add -
 echo "deb https://deb.beekeeperstudio.io stable main" | sudo tee /etc/apt/sources.list.d/beekeeper-studio-app.list

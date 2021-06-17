@@ -1,7 +1,18 @@
 #!/bin/bash
-
-PID=$(pgrep gnome-session | cut -d$'\n' -f2)
+PID=$(pgrep gnome-session)
 export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/${PID}/environ | cut -d= -f2-)
+
+
+for p in $PID
+do
+    export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/${p}/environ | cut -d= -f2-)
+    if [ ! -z $DBUS_SESSION_BUS_ADDRESS ]
+    then
+        break
+    fi
+done
+
+
 echo
 echo $(date)
 echo "Session=" $DBUS_SESSION_BUS_ADDRESS
@@ -43,7 +54,7 @@ esac
 set_wallpaper(){
 
     case "$HOUR" in
-    06|07|08)
+    03|04|05)
     echo "Setting wallpaper for dawn"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}1.jpg"
