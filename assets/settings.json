@@ -1,0 +1,99 @@
+{
+    "python.linting.pylintArgs": [
+        "--generate-members"
+    ],
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.eol": "\r\n",
+    "python.languageServer": "Pylance",
+    "window.zoomLevel": 1,
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "files.autoSave": "afterDelay",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "python.showStartPage": false,
+
+    "workbench.preferredDarkColorTheme": "Omni",
+    "python.analysis.memory.keepLibraryAst": true,
+
+//NLW------------------------------------------
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "node_modules":true
+    },
+
+    "terminal.external.linuxExec": "/bin/zsh",
+
+    //Fonte
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+
+
+
+
+    //Inicia smepre com um novo arquivo aberto
+    "workbench.startupEditor": "newUntitledFile",
+
+    //Compacta pastas vazias, alá Android Studio Packages
+    "explorer.compactFolders": true,
+
+    //Highlight da linha selecionada somente no numero
+    "editor.renderLineHighlight": "gutter",
+    //Caminho do arquivo curto no titulo
+    "workbench.editor.labelFormat": "short",
+    //Nao quero suas extensoes vscode
+    "extensions.ignoreRecommendations": true,
+
+    //Js e Ts
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "typescript.updateImportsOnFileMove.enabled": "never",
+
+    "breadcrumbs.enabled": true,
+    "editor.parameterHints.enabled": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+
+    //Configs do mano emmet pro js
+    "emmet.syntaxProfiles": {"javascript": "jsx"},
+    "emmet.includeLanguages": {"javascript": "javascriptreact"},
+    "javascript.suggest.autoImports": true,
+    "typescript.suggest.autoImports": true,
+
+    //Temas
+    "workbench.colorTheme": "Omni",
+    "workbench.iconTheme": "material-icon-theme",
+    "tabnine.experimentalAutoImports": true,
+    "discord.lowerDetailsEditing": "{workspace}",
+    "discord.lowerDetailsIdling": "{null}",
+    "discord.lowerDetailsNotFound": "{null}",
+    "discord.workspaceElapsedTime": true,
+    "discord.detailsDebugging": "Debugando {file_name}",
+    "discord.detailsEditing": "Editando {file_name}",
+    "discord.detailsIdling": "Pensando...",
+    "discord.largeImage": "Codando em {LANG} ",
+    "discord.largeImageIdling": "De boa!",
+    "discord.lowerDetailsDebugging": "{null}",
+    "jupyter.themeMatplotlibPlots": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "terminal.integrated.tabs.enabled": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[c]": {
+
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+
+
+
+}
