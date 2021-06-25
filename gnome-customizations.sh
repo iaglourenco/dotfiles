@@ -10,7 +10,6 @@ echo "Installing WallScript"
 touch wallcron.cron
 echo "0 * * * * /home/iago/Projects/dotfiles/wallscript.sh 2>&- >> "/home/iago/Projects/dotfiles/wallmac.log"" >> wallcron.cron
 echo "@reboot /home/iago/Projects/dotfiles/wallscript.sh 2>&- >> "/home/iago/Projects/dotfiles/wallmac.log"" >> wallcron.cron
-echo "@reboot rm -f "/home/iago/Projects/dotfiles/wallmac.log"" >> wallcron.cron
 crontab wallcron.cron
 rm -f wallcron.cron
 

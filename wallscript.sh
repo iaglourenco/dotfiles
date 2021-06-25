@@ -2,26 +2,25 @@
 PID=$(pgrep gnome-session)
 export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/${PID}/environ | cut -d= -f2-)
 
-
 for p in $PID
 do
     export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/${p}/environ | cut -d= -f2-)
     if [ ! -z $DBUS_SESSION_BUS_ADDRESS ]
     then
+    GNOMEPID=$p
         break
     fi
 done
-
 
 echo
 echo $(date)
 echo "Session=" $DBUS_SESSION_BUS_ADDRESS
 
-CLIFFS="file:////home/iago/Pictures/Dynamic Wallpapers/Cliffs/"
-SIERRA="file:////home/iago/Pictures/Dynamic Wallpapers/Sierra/"
-BEACH="file:////home/iago/Pictures/Dynamic Wallpapers/Beach/"
-DESERT="file:////home/iago/Pictures/Dynamic Wallpapers/Desert/"
-LAKE="file:////home/iago/Pictures/Dynamic Wallpapers/Lake/"
+CLIFFS="file:///home/iago/Pictures/Dynamic Wallpapers/Cliffs/"
+SIERRA="file:///home/iago/Pictures/Dynamic Wallpapers/Sierra/"
+BEACH="file:///home/iago/Pictures/Dynamic Wallpapers/Beach/"
+DESERT="file:///home/iago/Pictures/Dynamic Wallpapers/Desert/"
+LAKE="file:///home/iago/Pictures/Dynamic Wallpapers/Lake/"
 HOUR=$(date +%H)
 DAY=$(date +%d)
 WPP_TIER=""
@@ -58,49 +57,49 @@ set_wallpaper(){
     echo "Setting wallpaper for dawn"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}1.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
     06|07)
     echo "Setting wallpaper for almost morning"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}2.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
-    08|09)
+    08|09|10)
     echo "Setting wallpaper for morning"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}3.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
     11|12|13)
     echo "Setting wallpaper for noon"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}4.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
     14|15)
     echo "Setting wallpaper for almost evening"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}5.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
     16|17)
     echo "Setting wallpaper for evening"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}6.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
     18|19)
     echo "Setting wallpaper for almost night"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}7.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
     *)
     echo "Setting wallpaper for night"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}8.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'stretched'
+    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
     ;;
     esac
     echo
