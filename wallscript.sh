@@ -27,15 +27,15 @@ WPP_TIER=""
 
 
 case "$DAY" in
-1|2|3|4|5|6)
+01|02|03|04|05|06)
 echo "Using Cliffs tier"
 WPP_TIER=$CLIFFS
 ;;
-7|8|9|10|11|12)
+07|08|09)
 echo "Using Beachs tier"
 WPP_TIER=$BEACH
 ;;
-8|9|10|11|12|13)
+10|11|12|13)
 echo "Using Desert tier"
 WPP_TIER=$DESERT
 ;;
@@ -57,49 +57,49 @@ set_wallpaper(){
     echo "Setting wallpaper for dawn"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}1.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     06|07)
     echo "Setting wallpaper for almost morning"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}2.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     08|09|10)
     echo "Setting wallpaper for morning"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}3.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     11|12|13)
     echo "Setting wallpaper for noon"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}4.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     14|15)
     echo "Setting wallpaper for almost evening"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}5.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     16|17)
     echo "Setting wallpaper for evening"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}6.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     18|19)
     echo "Setting wallpaper for almost night"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}7.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     *)
     echo "Setting wallpaper for night"
     echo "================================"
     gsettings set org.gnome.desktop.background picture-uri "${WPP_TIER}8.jpg"
-    gsettings set org.gnome.desktop.background picture-options 'wallpaper'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
     ;;
     esac
     echo
